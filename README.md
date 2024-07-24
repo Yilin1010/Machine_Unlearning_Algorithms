@@ -62,3 +62,70 @@ Collection:
 Recommender Systems:
 
 [[2403.06737] Post-Training Attribute Unlearning in Recommender Systems](https://arxiv.org/abs/2403.06737) 
+
+
+
+### evaluate.py
+
+This module provides a suite of functions for evaluating and comparing machine learning models for model unlearning algorithms.
+
+Key Features:
+- Gradient computation and comparison
+- Accuracy calculation across different datasets
+- Relearning time measurement
+- Entropy calculation and visualization
+- Weight visualization
+- Membership Inference Attack (MIA) scoring
+
+Main Functions:
+
+- compare_mia_scores(model_list, model_names, forget_loader, retain_loader, unseen_loader)
+    Compares Membership Inference Attack scores for multiple models.
+
+- compare_accuracy(model_list, model_names, forget_loader, retain_loader, test_loader, unseen_loader)
+    Compares accuracies of multiple models on different datasets.
+
+- compare_entropy(model_list, model_names, forget_loader, retain_loader, unseen_loader)
+    Compares prediction entropy of models across different datasets.
+
+- compare_grad(modellist, modelnames, forget_loader, retain_loader, unseen_loader)
+    Compares gradients of multiple models on different datasets.
+
+- compare_relearn_time(model_list, model_names, forget_loader, test_loader, lr, momentum, optimizer_fn, acc_threshold=0.97)
+    Evaluates how long it takes for models to relearn forgotten data.
+
+
+### unlearn.py
+
+This module implements selective gradient-based unlearning algorithms.
+It aims to reduce model performance on specific data (forget set) while maintaining performance on retained data.
+
+Key Features:
+- Selective gradient computation
+- Customizable gradient selection criteria
+- Flexible parameter filtering for targeted unlearning
+
+Main Functions:
+- select_grads_fn(retain_grads, forget_grads, diff_threshold_ratio=0.8, magnitude_threshold_ratio=0.5)
+    Selects gradients based on predefined criteria for unlearning.
+
+- unlearn_selectiveGrad(model, retain_loader, forget_loader, test_loader, criterion, num_epochs, 
+                        learning_rate=0.01, select_grads_fn=default_select_grads, 
+                        filter_param_fn=None, ft_acc_threshold=0.1)
+    Performs the unlearning process using selective gradient descent/ascent.
+
+Usage:
+
+    from unlearn import unlearn_selectiveGrad, select_grads_fn
+
+    unlearned_model, results = unlearn_selectiveGrad(
+        model, 
+        retain_loader, 
+        forget_loader, 
+        test_loader,
+        criterion, 
+        num_epochs, 
+        learning_rate,
+        select_grads_fn=select_grads_fn
+    )
+

@@ -61,7 +61,8 @@ def unlearn_selectiveGrad(model, retain_loader, forget_loader, test_loader,
                        ft_acc_threshold = 0.1):
     """
     Perform gradient ascent on the forget set to 'unlearn' or reduce model performance on these samples.
-
+    Select the gradients by comparing the relationship and magnitude between retain and forget data
+    
     Args:
     forget_loader (DataLoader): DataLoader containing the data to forget.
     """
