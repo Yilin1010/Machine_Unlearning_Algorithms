@@ -70,12 +70,11 @@ Recommender Systems:
 This module provides a suite of functions for evaluating and comparing machine learning models for model unlearning algorithms.
 
 Key Features:
-- Gradient computation and comparison
 - Accuracy calculation across different datasets
-- Relearning time measurement
-- Entropy calculation and visualization
-- Weight visualization
 - Membership Inference Attack (MIA) scoring
+- Entropy calculation and visualization
+- Relearning time and computation
+- Gradient Visualization
 
 Main Functions:
 
