@@ -5,7 +5,7 @@
 |  Model | Dataset |  Link  |
 | :----: | :-----: | :----: |
 |**Computer Vision** |
-| Vision Transformer | tiny ImageNet |  |
+| Vision Transformer | tiny ImageNet, cifar100 |  |
 | 3-layer FNN | Mnist |  |
 
 
