@@ -14,6 +14,7 @@
 | Algorithm |  Cite  | Progress |
 | :------:  | :----: | :------: |
 | Selective Gradient Ascent | | done |
+| RMU | | planned |
 
 
 | Forgetten Data Type |  | Progress |
