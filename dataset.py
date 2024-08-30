@@ -11,7 +11,6 @@ from datasets import Dataset as HFDataset
 from image_net_utils import map_clsidx_imagenet_collate_fn
 from typing import Tuple, Union
 from PIL import Image
-
 import utils
 
 device = utils.device_config()
